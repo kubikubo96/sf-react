@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { changeState } from '../stores/slices/commonSlice'
 import {
   CContainer,
   CHeader,
@@ -20,15 +21,11 @@ import { logo } from 'src/assets/brand/logo'
 
 const AppHeader = () => {
   const dispatch = useDispatch()
-  const sidebarShow = useSelector((state) => state.sidebarShow)
 
   return (
     <CHeader position="sticky" className="mb-4">
       <CContainer fluid>
-        <CHeaderToggler
-          className="ps-1"
-          onClick={() => dispatch({ type: 'set', sidebarShow: !sidebarShow })}
-        >
+        <CHeaderToggler className="ps-1" onClick={() => dispatch(changeState())}>
           <CIcon icon={cilMenu} size="lg" />
         </CHeaderToggler>
         <CHeaderBrand className="mx-auto d-md-none" to="/">
