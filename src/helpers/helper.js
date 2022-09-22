@@ -36,3 +36,43 @@
   }
   return data;
 }
+
+/**
+ * Format money vietnams
+ * 
+ * @param {*} n 
+ * @returns 
+ */
+ export function formatMoney(number) {
+  number = number.replace(/\D/g, '');
+  new Intl.NumberFormat('VI-vi', {maximumSignificantDigits: 3}).format(number);
+}
+
+/**
+ * 
+ * Convert data money for input text
+ * 
+ * @param {*} price 
+ * @param {*} min 
+ * @param {*} max 
+ * @returns 
+ */
+export function dataInputMoney(price, min = 0, max = 100000000) {
+
+  let data = { number: 0, money: 0};
+
+  let numberPrice = price.replace(/\D/g, '');
+  data.number = numberPrice ? parseInt(numberPrice) : 0;
+
+  if (data.number < min) {
+    data.number = numberPrice = min;
+    data.money = data.number;
+  }
+  if (data.number > max) {
+    data.number = numberPrice = max;
+    data.money = data.number;
+  }
+
+  data.money = new Intl.NumberFormat('VI-vi', {maximumSignificantDigits: 3}).format(numberPrice);
+  return data;
+}
