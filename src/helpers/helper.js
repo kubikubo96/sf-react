@@ -1,3 +1,34 @@
+
+/**
+ * 
+ * Thêm phần tử vào mảng
+ * 
+ * @param {*} data 
+ * @param {*} item 
+ * @returns 
+ */
+export function pushDataToArray(data, item) {
+  return data = [...data, item];
+}
+
+/**
+ * 
+ * Cập nhật object trong mảng
+ * 
+ * @param {*} data 
+ * @param {*} payload 
+ * @returns 
+ */
+export function updateArrayObject(data, payload, value = 'id') {
+  data = [...data];
+  data.splice(
+    data.findIndex((item) => item.id === payload[value]),
+    1,
+    payload,
+  );
+  return data;
+}
+
 /**
  * Check isObject
  * 
