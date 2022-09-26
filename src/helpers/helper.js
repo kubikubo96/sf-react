@@ -132,3 +132,25 @@ export function toNonAccentVietnamese(str) {
   str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
   return str;
 }
+
+/**
+ * 
+ * Filter array list object by keyword
+ * 
+ * @param {*} data 
+ * @param {*} keyword 
+ * @param {*} value 
+ * @returns 
+ */
+export function filterArrayObjectByKey(data, keyword = '', value = 'name') {
+  data = [...data];
+  if (keyword) {
+    data = data.filter((item) => {
+      if (toLowerCaseNonAccentVietnamese(item[value]).indexOf(toLowerCaseNonAccentVietnamese(keyword)) > -1) {
+        return item;
+      }
+    });
+    return data;
+  }
+  return data;
+}
