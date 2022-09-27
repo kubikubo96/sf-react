@@ -185,3 +185,19 @@ export function filterArrayObjectByKey(data, keyword = '', value = 'name') {
   }
   return data;
 }
+
+/**
+ * 
+ * Tìm 1 object trong array object
+ * 
+ * @param {*} aryData 
+ * @param {*} key 
+ * @param {*} value 
+ * @returns 
+ */
+export function findInArray(aryData, key = '', value = '') {
+  if(!key || !value) {
+    return null;
+  }
+  return aryData.find(item => item[key] === value);
+}
