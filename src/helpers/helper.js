@@ -1,3 +1,5 @@
+import moment from 'moment';
+moment().format();
 
 /**
  * 
@@ -209,7 +211,7 @@ export function findInArray(aryData, key = '', value = '') {
  * @param {*} format 
  * @returns 
  */
-export function formatUnix(unix, format = 'DD MM YYYY H:mm:ss"') {
+export function formatUnix(unix, format = 'DD MM YYYY H:mm:ss') {
   return moment.unix(unix).format(format)
 }
 
