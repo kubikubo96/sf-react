@@ -201,3 +201,14 @@ export function findInArray(aryData, key = '', value = '') {
   }
   return aryData.find(item => item[key] === value);
 }
+
+/**
+ * format unix time
+ * 
+ * @param {*} unix 
+ * @param {*} format 
+ * @returns 
+ */
+export function formatUnix(unix, format = 'DD MM YYYY H:mm:ss"') {
+  return moment.unix(unix).format(format)
+}
