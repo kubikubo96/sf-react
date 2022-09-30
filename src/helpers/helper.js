@@ -2,36 +2,6 @@ import moment from 'moment';
 moment().format();
 
 /**
- * 
- * Thêm phần tử vào mảng
- * 
- * @param {*} data 
- * @param {*} item 
- * @returns 
- */
-export function pushDataToArray(data, item) {
-  return data = [...data, item];
-}
-
-/**
- * 
- * Cập nhật object trong mảng
- * 
- * @param {*} data 
- * @param {*} payload 
- * @returns 
- */
-export function updateArrayObject(data, payload, value = 'id') {
-  data = [...data];
-  data.splice(
-    data.findIndex((item) => item.id === payload[value]),
-    1,
-    payload,
-  );
-  return data;
-}
-
-/**
  * Check isObject
  * 
  * @param {*} val 
@@ -164,44 +134,6 @@ export function toNonAccentVietnamese(str) {
   str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // Huyền sắc hỏi ngã nặng
   str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // Â, Ê, Ă, Ơ, Ư
   return str;
-}
-
-/**
- * 
- * Filter array list object by keyword
- * 
- * @param {*} data 
- * @param {*} keyword 
- * @param {*} value 
- * @returns 
- */
-export function searchByKeyword(data, keyword = '', keysearch = 'name') {
-  data = [...data];
-  if (keyword) {
-    data = data.filter((item) => {
-      if (toLowerCaseNonAccentVietnamese(item[keysearch]).indexOf(toLowerCaseNonAccentVietnamese(keyword)) > -1) {
-        return item;
-      }
-    });
-    return data;
-  }
-  return data;
-}
-
-/**
- * 
- * Tìm 1 object trong array object
- * 
- * @param {*} aryData 
- * @param {*} key 
- * @param {*} value 
- * @returns 
- */
-export function findInArray(aryData, key = '', value = '') {
-  if(!key || !value) {
-    return null;
-  }
-  return aryData.find(item => item[key] === value);
 }
 
 /**
