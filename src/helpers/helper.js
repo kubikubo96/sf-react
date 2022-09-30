@@ -175,11 +175,11 @@ export function toNonAccentVietnamese(str) {
  * @param {*} value 
  * @returns 
  */
-export function filterArrayObjectByKey(data, keyword = '', value = 'name') {
+export function searchByKeyword(data, keyword = '', keysearch = 'name') {
   data = [...data];
   if (keyword) {
     data = data.filter((item) => {
-      if (toLowerCaseNonAccentVietnamese(item[value]).indexOf(toLowerCaseNonAccentVietnamese(keyword)) > -1) {
+      if (toLowerCaseNonAccentVietnamese(item[keysearch]).indexOf(toLowerCaseNonAccentVietnamese(keyword)) > -1) {
         return item;
       }
     });
